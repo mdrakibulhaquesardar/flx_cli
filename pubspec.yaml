@@ -2,8 +2,8 @@ name: flx
 description: A powerful Flutter Clean Architecture CLI tool for generating scalable project structures with GetX/BLoC state management, Freezed models, and comprehensive boilerplate code.
 version: 1.0.0
 
-homepage: https://github.com/yourusername/flx-cli
-repository: https://github.com/yourusername/flx-cli
+
+repository: https://github.com/mdrakibulhaquesardar/flx_cli.git
 documentation: https://flx-cli.github.io/docs
 
 topics:
