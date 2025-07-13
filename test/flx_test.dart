@@ -1,4 +1,4 @@
-import 'package:flx/flx.dart';
+import 'package:flx_cli/flx.dart';
 import 'package:test/test.dart';
 
 void main() {

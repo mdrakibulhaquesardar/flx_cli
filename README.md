@@ -2,7 +2,7 @@
 
 **A powerful Flutter Clean Architecture CLI tool for generating scalable project structures with GetX/BLoC state management, Freezed models, and comprehensive boilerplate code.**
 
-[![pub package](https://img.shields.io/pub/v/flx.svg)](https://pub.dev/packages/flx)
+[![pub package](https://img.shields.io/pub/v/flx_cli.svg)](https://pub.dev/packages/flx_cli)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## ✨ Features
@@ -22,7 +22,7 @@
 ### Installation
 
 ```bash
-dart pub global activate flx
+dart pub global activate flx_cli
 ```
 
 ### Basic Usage
