@@ -513,7 +513,7 @@ class ${className}Page extends GetView<${className}Controller> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('${className}'),
+        title: Text('$className'),
       ),
       body: Obx(() {
         if (controller.isLoading) {
@@ -557,7 +557,7 @@ class ${className}Page extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('${className}'),
+        title: Text('$className'),
       ),
       body: BlocBuilder<${className}Bloc, ${className}State>(
         builder: (context, state) {
@@ -610,7 +610,6 @@ class ${className}Page extends StatelessWidget {
   // Binding Template
   String generateBinding(String name) {
     final className = toPascalCase(name);
-    final variableName = toCamelCase(name);
     
     if (config.defaultStateManager == 'bloc') {
       return generateBlocBinding(name);
@@ -650,7 +649,6 @@ class ${className}Binding extends Bindings {
   // BLoC Binding Template (Provider)
   String generateBlocBinding(String name) {
     final className = toPascalCase(name);
-    final variableName = toCamelCase(name);
     
     return '''
 import 'package:flutter_bloc/flutter_bloc.dart';

@@ -249,13 +249,13 @@ class ${className}Page extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('${className}'),
+        title: Text('$className'),
       ),
       body: BlocBuilder<${className}Bloc, ${className}State>(
         builder: (context, state) {
           return const Center(
             child: Text(
-              '${className} Page',
+              '$className Page',
               style: TextStyle(fontSize: 24),
             ),
           );
@@ -279,11 +279,11 @@ class ${className}Page extends GetView<${className}Controller> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('${className}'),
+        title: Text('$className'),
       ),
       body: const Center(
         child: Text(
-          '${className} Page',
+          '$className Page',
           style: TextStyle(fontSize: 24),
         ),
       ),
