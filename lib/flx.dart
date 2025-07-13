@@ -4,9 +4,33 @@ import 'package:args/args.dart';
 import 'templates.dart';
 import 'file_generator.dart';
 
+/// A powerful Flutter Clean Architecture CLI tool for generating scalable 
+/// project structures with GetX/BLoC state management, Freezed models, 
+/// and comprehensive boilerplate code.
+/// 
+/// The [FlxCli] class provides the main entry point for the FLX CLI tool,
+/// handling command parsing, feature generation, and project scaffolding.
+/// 
+/// Example usage:
+/// ```dart
+/// final cli = FlxCli();
+/// await cli.run(['gen:feature', 'user_profile']);
+/// ```
 class FlxCli {
-  static const String version = '1.0.0';
+  /// The current version of the FLX CLI tool.
+  static const String version = '1.0.2';
   
+  /// Runs the FLX CLI with the provided command-line arguments.
+  /// 
+  /// [arguments] - List of command-line arguments to process.
+  /// 
+  /// Supports commands like:
+  /// - `gen:feature <name>` - Generate a complete feature
+  /// - `gen:model <name>` - Generate a model with Freezed/Equatable
+  /// - `gen:usecase <name>` - Generate a use case
+  /// - `config init` - Initialize configuration
+  /// - `--help` - Show help information
+  /// - `--version` - Show version information
   Future<void> run(List<String> arguments) async {
     // Handle special case for config --state command
     if (arguments.length >= 3 && arguments[0] == 'config' && arguments[1] == '--state') {

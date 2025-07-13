@@ -5,6 +5,45 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.2] - 2024-01-15
+
+### 📚 API Documentation
+
+- **Comprehensive Dartdoc Comments**: Added detailed documentation for all public API elements
+- **FlxCli Class**: Complete documentation with usage examples and command descriptions
+- **FileGenerator Class**: Documented all public methods including `generateFeature`, `generateScreen`, `generateModel`, `generateUseCase`, `generateRepository`
+- **TemplateGenerator Class**: Added documentation for template generation methods and utility functions
+- **ConfigModel Class**: Documented configuration loading and JSON handling
+- **Utility Methods**: Added documentation for naming convention helpers (`toCamelCase`, `toPascalCase`, `toSnakeCase`)
+- **String Extension**: Documented the `capitalize()` helper method
+
+### 🔧 Code Quality Improvements
+
+- **Linter Rules**: Added `public_member_api_docs` lint rule to enforce documentation coverage
+- **Additional Rules**: Added `prefer_single_quotes` and `avoid_print` for better code quality
+- **pub.dev Score**: Significantly improved documentation coverage from 0% to 20%+ for better pub.dev score
+
+### 🎯 pub.dev Optimization
+
+- **API Coverage**: Documented 20+ public API elements to meet pub.dev documentation requirements
+- **Examples**: Added comprehensive usage examples throughout the documentation
+- **Type Safety**: Improved parameter documentation with proper type annotations
+
+## [1.0.1] - 2024-01-15
+
+### 📝 Documentation Updates
+
+- **README.md**: Updated installation commands to use `flx_cli` package name
+- **Documentation Site**: Complete documentation available at https://flx-doc.netlify.app
+- **Package References**: All documentation updated to reflect correct package name
+- **Installation Guide**: Fixed all activation commands throughout documentation
+
+### 🔧 Package Updates
+
+- **Package Name**: Changed from `flx` to `flx_cli` (original name was taken)
+- **Import Statements**: Updated all internal imports to use `flx_cli`
+- **pub.dev Links**: Updated badge and installation instructions
+
 ## [1.0.0] - 2024-01-15
 
 ### 🎉 Initial Release

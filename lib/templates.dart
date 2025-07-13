@@ -1,12 +1,36 @@
 import 'dart:convert';
 import 'dart:io';
 
+/// Configuration model for FLX CLI settings and preferences.
+/// 
+/// The [ConfigModel] class represents the user's configuration preferences
+/// stored in `.flxrc.json` file, controlling code generation behavior.
+/// 
+/// Example configuration:
+/// ```json
+/// {
+///   "useFreezed": true,
+///   "useEquatable": false,
+///   "defaultStateManager": "getx",
+///   "author": "John Doe"
+/// }
+/// ```
 class ConfigModel {
+  /// Whether to use Freezed for model generation.
   final bool useFreezed;
+  
+  /// Whether to use Equatable for value equality.
   final bool useEquatable;
+  
+  /// Default state manager ('getx' or 'bloc').
   final String defaultStateManager;
+  
+  /// Author name for generated file headers.
   final String author;
   
+  /// Creates a new [ConfigModel] with the specified settings.
+  /// 
+  /// All parameters are required to ensure explicit configuration.
   ConfigModel({
     required this.useFreezed,
     required this.useEquatable,
@@ -14,6 +38,15 @@ class ConfigModel {
     required this.author,
   });
   
+  /// Creates a [ConfigModel] from a JSON map with default fallbacks.
+  /// 
+  /// [json] - The JSON map containing configuration values.
+  /// 
+  /// Provides sensible defaults for missing values:
+  /// - `useFreezed`: defaults to `true`
+  /// - `useEquatable`: defaults to `false`  
+  /// - `defaultStateManager`: defaults to `'getx'`
+  /// - `author`: defaults to `'Developer'`
   factory ConfigModel.fromJson(Map<String, dynamic> json) {
     return ConfigModel(
       useFreezed: json['useFreezed'] ?? true,
@@ -23,6 +56,12 @@ class ConfigModel {
     );
   }
   
+  /// Loads configuration from `.flxrc.json` file or returns defaults.
+  /// 
+  /// Returns a [ConfigModel] loaded from the current directory's `.flxrc.json`
+  /// file. If the file doesn't exist, returns a default configuration.
+  /// 
+  /// Throws [FormatException] if the JSON file is malformed.
   static Future<ConfigModel> load() async {
     final configFile = File('.flxrc.json');
     if (await configFile.exists()) {
@@ -41,11 +80,33 @@ class ConfigModel {
   }
 }
 
+/// Template generator for creating Flutter Clean Architecture code templates.
+/// 
+/// The [TemplateGenerator] class is responsible for generating all code templates
+/// based on the user's configuration preferences. It handles different state
+/// management patterns, naming conventions, and code generation styles.
+/// 
+/// Example usage:
+/// ```dart
+/// final config = await ConfigModel.load();
+/// final generator = TemplateGenerator(config);
+/// final modelCode = generator.generateModel('User');
+/// ```
 class TemplateGenerator {
+  /// The configuration model controlling code generation behavior.
   final ConfigModel config;
   
+  /// Creates a new [TemplateGenerator] with the specified configuration.
+  /// 
+  /// [config] - The configuration model that controls code generation behavior.
   TemplateGenerator(this.config);
   
+  /// Converts a string to camelCase naming convention.
+  /// 
+  /// [text] - The input text to convert.
+  /// 
+  /// Splits on underscores, hyphens, and spaces, then converts to camelCase.
+  /// Example: 'user_profile' → 'userProfile'
   String toCamelCase(String text) {
     if (text.isEmpty) return text;
     final words = text.split(RegExp(r'[_\-\s]+'));
@@ -53,12 +114,24 @@ class TemplateGenerator {
            words.skip(1).map((word) => word.capitalize()).join();
   }
   
+  /// Converts a string to PascalCase naming convention.
+  /// 
+  /// [text] - The input text to convert.
+  /// 
+  /// Splits on underscores, hyphens, and spaces, then converts to PascalCase.
+  /// Example: 'user_profile' → 'UserProfile'
   String toPascalCase(String text) {
     if (text.isEmpty) return text;
     final words = text.split(RegExp(r'[_\-\s]+'));
     return words.map((word) => word.capitalize()).join();
   }
   
+  /// Converts a string to snake_case naming convention.
+  /// 
+  /// [text] - The input text to convert.
+  /// 
+  /// Converts PascalCase/camelCase to snake_case and normalizes separators.
+  /// Example: 'UserProfile' → 'user_profile'
   String toSnakeCase(String text) {
     return text
         .replaceAll(RegExp(r'[A-Z]'), '_\$&')
@@ -67,7 +140,12 @@ class TemplateGenerator {
         .replaceAll(RegExp(r'^_'), '');
   }
   
-  // Entity Template
+  /// Generates a domain entity class following Clean Architecture principles.
+  /// 
+  /// [name] - The name of the entity to generate.
+  /// 
+  /// Creates an entity class with proper structure, optional Freezed/Equatable
+  /// integration, and appropriate imports based on configuration settings.
   String generateEntity(String name) {
     final className = toPascalCase(name);
     
@@ -117,7 +195,16 @@ class ${className}Entity {
 ''';
   }
   
-  // Model Template
+  /// Generates a data model class with optional Freezed/Equatable integration.
+  /// 
+  /// [name] - The name of the model to generate.
+  /// 
+  /// Creates a model class in the data layer with:
+  /// - JSON serialization support
+  /// - Optional Freezed immutability (if enabled in config)
+  /// - Optional Equatable value equality (if enabled in config)
+  /// - Proper imports and annotations
+  /// - Entity conversion methods
   String generateModel(String name) {
     final className = toPascalCase(name);
     
@@ -697,7 +784,13 @@ class ${className}Provider {
   }
 }
 
+/// Extension on [String] providing utility methods for text formatting.
 extension StringExtension on String {
+  /// Capitalizes the first letter of the string and lowercases the rest.
+  /// 
+  /// Returns the same string if it's empty.
+  /// 
+  /// Example: 'hello' → 'Hello'
   String capitalize() {
     if (isEmpty) return this;
     return this[0].toUpperCase() + substring(1).toLowerCase();

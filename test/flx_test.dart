@@ -9,7 +9,7 @@ void main() {
     });
 
     test('should have correct version', () {
-      expect(FlxCli.version, equals('1.0.0'));
+      expect(FlxCli.version, equals('1.0.2'));
     });
   });
 }

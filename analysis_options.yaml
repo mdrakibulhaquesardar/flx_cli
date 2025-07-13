@@ -15,9 +15,13 @@ include: package:lints/recommended.yaml
 
 # Uncomment the following section to specify additional rules.
 
-# linter:
-#   rules:
-#     - camel_case_types
+linter:
+  rules:
+    # Ensure public API members have documentation
+    - public_member_api_docs
+    # Additional recommended rules for better code quality
+    - prefer_single_quotes
+    - avoid_print
 
 # analyzer:
 #   exclude:
