@@ -1,0 +1,6 @@
+{
+  "useFreezed": true,
+  "useEquatable": false,
+  "defaultStateManager": "bloc",
+  "author": "Rakibul Haque"
+}
