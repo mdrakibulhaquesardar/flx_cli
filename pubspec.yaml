@@ -4,7 +4,7 @@ version: 1.0.0
 
 
 repository: https://github.com/mdrakibulhaquesardar/flx_cli.git
-documentation: https://flx-cli.github.io/docs
+documentation: https://flx-doc.netlify.app
 
 topics:
   - flutter
