@@ -19,6 +19,13 @@
 
 ## 🚀 Quick Start
 
+## 📚 Documentation
+
+- **Complete Documentation**: [FLX CLI Docs](https://flx-doc.netlify.app)
+- **Clean Architecture Guide**: Learn Clean Architecture patterns
+- **Best Practices**: Follow Flutter development best practices
+- **Troubleshooting**: Common issues and solutions
+
 ### Installation
 
 ```bash
@@ -207,13 +214,6 @@ flutter packages pub run build_runner build
 flutter packages pub run build_runner watch
 ```
 
-## 📚 Documentation
-
-- **Complete Documentation**: [FLX CLI Docs](https://flx-cli.github.io/docs)
-- **Clean Architecture Guide**: Learn Clean Architecture patterns
-- **Best Practices**: Follow Flutter development best practices
-- **Troubleshooting**: Common issues and solutions
-
 ## 🤝 Contributing
 
 We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) for details.
@@ -225,9 +225,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 🌟 Support
 
 - ⭐ Star this repository if it helped you!
-- 🐛 [Report bugs](https://github.com/yourusername/flx-cli/issues)
-- 💡 [Request features](https://github.com/yourusername/flx-cli/issues)
-- 📧 [Contact us](mailto:your.email@example.com)
+- 🐛 [Report bugs](https://github.com/mdrakibulhaquesardar/flx-cli/issues)
+- 💡 [Request features](https://github.com/mdrakibulhaquesardar/flx-cli/issues)
+- 📧 [Contact us](mailto:rakibulhaques@gmail.com)
 
 ---
 
